@@ -5,7 +5,7 @@ __For realz.__
 Created with macruby 0.10. Should work down to 0.5 I believe.
 
 Defaults:
-___
+---
 * Need an empty playlist named "Top Tracks" or create your own and change the PLAYLIST const.
 * Adjust the DELIMITER to your liking. Mine plays out nicely at 3-5.
 
