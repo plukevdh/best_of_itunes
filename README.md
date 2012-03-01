@@ -26,11 +26,12 @@ If there are, you may need to build the iTunes bridge support files for your mac
 _and_
 `gen_bridge_metadata -c '-I.' iTunes.h &gt; iTunes.bridgesupport`
 
-
-???:
-___
+What to do with it:
+---
+Listen to good music.
+???.
 Profit.
 
 License:
-___
+---
 See LICENSE.md
