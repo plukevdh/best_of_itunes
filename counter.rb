@@ -28,12 +28,12 @@ top_tracks = albums.flat_map do |title, tracks|
 
   # get counts and reject minmax
   counts = tracks.map &:playedCount
-  counts -= counts.minmax unless counts.count < 2
+  counts -= counts.minmax unless counts.count < 3
 
-  next if counts.empty? || counts == 0
+  next if counts.empty?
 
   avg = ( counts.inject(0,&:+) / counts.count )
-  tracks.select { |track| track.playedCount > (avg + DELIMITER) }
+  tracks.select { |track| track.playedCount >= (avg + DELIMITER) || ( counts.count == 1 && track.playedCount > DELIMITER ) }
 end
 
 itunes.add top_tracks.compact.map(&:location), to: itunes.sources["Library"].playlists[PLAYLIST]

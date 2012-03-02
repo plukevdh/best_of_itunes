@@ -1,3 +1,5 @@
+> "It's like a better genius playlist generator because it makes you the genius"
+
 Based on this tweet: https://twitter.com/joshaber/status/175230633033994240
 
 __For realz.__
