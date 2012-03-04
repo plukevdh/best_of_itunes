@@ -1,0 +1,11 @@
+macruby counter_gcd.rb  4.27s user 1.78s system 35% cpu 17.211 total
+macruby counter.rb  4.18s user 1.82s system 32% cpu 18.428 total
+
+GCD:
+get tracks - 1.620000   1.100000   2.720000 ( 10.823782)
+block      - 0.010000   0.000000   0.010000 (  0.013425)
+count      - 0.990000   0.680000   1.670000 (  5.601826)
+
+Normal:
+get tracks - 1.660000   1.090000   2.750000 ( 10.982067)
+count      - 0.960000   0.730000   1.690000 (  6.826243)

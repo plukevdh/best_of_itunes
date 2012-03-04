@@ -2,6 +2,8 @@
 framework 'Foundation'
 framework 'ScriptingBridge'
 
+require './objects/play_counter'
+
 itunes = SBApplication.applicationWithBundleIdentifier("com.apple.itunes")
 load_bridge_support_file 'iTunes.bridgesupport'
 itunes.run
@@ -15,25 +17,15 @@ end
 DELIMITER = 5
 PLAYLIST = "Top Tracks"
 
-tracks  = itunes.sources["Library"].userPlaylists["Music"].fileTracks
 albums = {}
 
-tracks.each do |track|
+itunes.sources["Library"].userPlaylists["Music"].fileTracks.each do |track|
   albums[track.album] ||= []
-  albums[track.album] << track if track.album.strip != ""
+  albums[track.album] << track
 end
 
-top_tracks = albums.flat_map do |title, tracks|
-  next if tracks.empty?
 
-  # get counts and reject minmax
-  counts = tracks.map &:playedCount
-  counts -= counts.minmax unless counts.count < 3
+awesome_tracks = []
+awesome_tracks = PlayCounter.new(albums).calculate(DELIMITER)
 
-  next if counts.empty?
-
-  avg = ( counts.inject(0,&:+) / counts.count )
-  tracks.select { |track| track.playedCount >= (avg + DELIMITER) || ( counts.count == 1 && track.playedCount > DELIMITER ) }
-end
-
-itunes.add top_tracks.compact.map(&:location), to: itunes.sources["Library"].playlists[PLAYLIST]
+itunes.add awesome_tracks.map(&:location), to: itunes.sources["Library"].playlists[PLAYLIST]
