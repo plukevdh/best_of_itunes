@@ -2,7 +2,7 @@
 
 Based on this tweet: https://twitter.com/joshaber/status/175230633033994240
 
-![http://dl.dropbox.com/u/3746322/Snapshot%2011:1:12%2011:13%20AM.png](Joshtweets)
+![Joshtweets](http://dl.dropbox.com/u/3746322/Snapshot%2011:1:12%2011:13%20AM.png)
 
 __For realz.__
 
